@@ -14,6 +14,7 @@ html {
 body {
   display: grid;
   place-content: center;
+  min-width: 375px;
   min-height: 100vh;
 }
 
@@ -46,13 +47,24 @@ body {
   font-size: 1.8rem;
 }
 
+.now .time-frame {
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+.previous {
+  font-weight: 300;
+}
+
 /* main*/
 main {
+  display: grid;
+  gap: 2rem;
   margin: 0 1rem;
 }
 
 /* Profile block */
-.profile.block {
+.profile-block {
   border-radius: 15px;
   overflow: hidden;
   background-color: var(--color-report-bg);
@@ -94,4 +106,43 @@ button {
 
 button:hover {
   color: whitesmoke;
+}
+
+/* Time-tracking section*/
+.time-tracking {
+  display: grid;
+}
+
+.report-block {
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: var(--cover-work);
+}
+
+.cover {
+  background: url(/images/icon-work.svg) no-repeat 92% -15px;
+  background-size: 70px;
+  height: 3rem;
+}
+
+.time-report {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 2rem;
+  border-radius: 15px;
+  background-color: var(--color-report-bg);
+  cursor: pointer;
+}
+
+.now {
+  display: grid;
+  gap: 0.5rem;
+  color: whitesmoke;
+}
+
+.previous {
+  display: grid;
+  justify-items: end;
+  align-items: center;
+  font-size: 1.4rem;
 }
