@@ -157,6 +157,10 @@ button:hover,
   gap: 1rem;
 }
 
+.time-report:hover {
+  background-color: hsl(235, 35%, 36%);
+}
+
 .header {
   display: flex;
   justify-content: space-between;
