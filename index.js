@@ -120,23 +120,28 @@ const reportData = [
   </div>
 </div> */
 
-const displayType = document.querySelector("main").dataset.display;
+const main = document.querySelector("main");
 const timeTracking = document.querySelector(".time-tracking");
+const buttons = document.querySelectorAll("button");
+
 timeTracking.innerHTML = "";
+render();
 
-let reports = "";
+function render() {
+  let reports = "";
+  const displayType = main.dataset.display;
 
-reportData.forEach((data) => {
-  const report = `<div class="report-block" data-type="${data.title}">
+  reportData.forEach((data) => {
+    const report = `<div class="report-block" data-type="${data.title}">
      <div class="cover"></div>
 
      <div class="time-report">
-       <div class="now">
+       <div class="header">
          <span class="title">${data.title}</span>
-         <span class="time-frame">${data.timeframes[displayType].current}hrs</span>
-       </div>
-       <div class="previous">
          <img src="/images/icon-ellipsis.svg" alt="" class="menu-icon" />
+       </div>
+       <div class="time">
+         <span class="time-frame">${data.timeframes[displayType].current}hrs</span>
          <span>
            Last week - <span class="time-frame">${data.timeframes[displayType].previous}hrs</span>
          </span>
@@ -145,20 +150,35 @@ reportData.forEach((data) => {
    </div>
    `;
 
-  reports += report;
-});
+    reports += report;
+  });
 
-timeTracking.innerHTML = reports;
+  timeTracking.innerHTML = reports;
 
-// styling
-const reportBlock = document.querySelectorAll(".report-block");
+  // styling
+  const reportBlock = document.querySelectorAll(".report-block");
 
-reportBlock.forEach((block) => {
-  block.style.backgroundColor = `var(--cover-${block.dataset.type
-    .toLowerCase()
-    .replace(" ", "")})`;
+  reportBlock.forEach((block) => {
+    block.style.backgroundColor = `var(--cover-${block.dataset.type
+      .toLowerCase()
+      .replace(" ", "")})`;
 
-  block.firstElementChild.style.backgroundImage = `url(/images/icon-${block.dataset.type
-    .toLowerCase()
-    .replace(" ", "-")}.svg)`;
+    block.firstElementChild.style.backgroundImage = `url(/images/icon-${block.dataset.type
+      .toLowerCase()
+      .replace(" ", "-")}.svg)`;
+  });
+
+  buttons.forEach((button) => {
+    if (button.dataset.type == displayType) button.classList.add("selected");
+    else button.classList.remove("selected");
+  });
+}
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    main.dataset.display = button.dataset.type;
+    render();
+
+    console.log(main.dataset.display);
+  });
 });

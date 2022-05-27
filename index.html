@@ -21,12 +21,12 @@
         <div class="profile-section">
           <img src="/images/image-jeremy.png" alt="" class="profile-image" />
 
-          <div>Report for <br /><b>Jeremy Robson</b></div>
+          <div class="user-name">Report for <br /><b>Jeremy Robson</b></div>
         </div>
 
         <div class="buttons">
           <button data-type="daily">Daily</button>
-          <button data-type="weekly">Weekly</button>
+          <button data-type="weekly" class="selected">Weekly</button>
           <button data-type="monthly">Monthly</button>
         </div>
       </div>
@@ -36,12 +36,15 @@
           <div class="cover"></div>
 
           <div class="time-report">
-            <div class="now">
+            <!-- now -->
+            <div class="header">
               <span class="title">work</span>
-              <span class="time-frame">32hrs</span>
-            </div>
-            <div class="previous">
               <img src="/images/icon-ellipsis.svg" alt="" class="menu-icon" />
+            </div>
+
+            <!-- previous -->
+            <div class="time">
+              <span class="time-frame">32hrs</span>
               <span>Last week - <span class="time-frame">36hrs</span></span>
             </div>
           </div>

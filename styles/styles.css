@@ -47,13 +47,34 @@ body {
   font-size: 1.8rem;
 }
 
-.now .time-frame {
+.profile-section b {
+  color: whitesmoke;
+  font-weight: 300;
+  font-size: 2.7rem;
+}
+
+.time > .time-frame {
+  color: rgba(255, 255, 255, 0.829);
   font-size: 3rem;
   font-weight: 300;
 }
 
-.previous {
+.time {
   font-weight: 300;
+}
+
+@media screen and (min-width: 1000px) {
+  .user-name {
+    max-width: 17.5rem;
+  }
+
+  .profile-section b {
+    font-size: 3.6rem;
+  }
+
+  .time > .time-frame {
+    font-size: 5rem;
+  }
 }
 
 /* main*/
@@ -86,11 +107,6 @@ main {
   border-radius: 100%;
 }
 
-.profile-section b {
-  font-weight: 300;
-  font-size: 2.7rem;
-}
-
 .buttons {
   display: flex;
   justify-content: space-around;
@@ -104,7 +120,8 @@ button {
   outline: none;
 }
 
-button:hover {
+button:hover,
+.selected {
   color: whitesmoke;
 }
 
@@ -118,32 +135,86 @@ button:hover {
   border-radius: 15px;
   overflow: hidden;
   background-color: var(--cover-work);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .cover {
   background: url(/images/icon-work.svg) no-repeat 94% -10px;
   background-size: 60px;
-  height: 3.2rem;
+  min-height: 3.2rem;
+  height: 100%;
 }
 
 .time-report {
   display: flex;
-  justify-content: space-between;
-  padding: 2rem 2rem;
+  flex-direction: column;
+  padding: 2rem;
   border-radius: 15px;
   background-color: var(--color-report-bg);
   cursor: pointer;
+  gap: 1rem;
 }
 
-.now {
-  display: grid;
-  gap: 0.5rem;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: whitesmoke;
+  height: fit-content;
 }
 
-.previous {
-  display: grid;
-  justify-items: end;
+.time {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   font-size: 1.4rem;
+}
+
+@media screen and (min-width: 1000px) {
+  main {
+    display: flex;
+  }
+
+  .profile-section {
+    gap: 3.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 35%;
+  }
+
+  .buttons {
+    display: grid;
+    gap: 1.5rem;
+    padding: 2.5rem;
+    justify-content: left;
+    justify-items: left;
+    font-size: 2rem;
+  }
+
+  .time-tracking {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .report-block {
+    width: 220px;
+  }
+
+  .cover {
+    background-position: 90% 2px;
+    background-size: 80px;
+  }
+
+  .time-report {
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .time {
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
 }
